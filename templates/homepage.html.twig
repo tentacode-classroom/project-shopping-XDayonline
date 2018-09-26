@@ -1,0 +1,16 @@
+{% extends "/base.html.twig" %}
+{% block title %}Accueil{% endblock %}
+{% block body %}
+    {% include 'layout/menu.html.twig' %}
+    <h1>Accueil</h1>
+    <h2>Liste des produits</h2>
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{{ path('product', {'productId': product.id}) }}">
+                    {% filter upper %}{{ product.name }}{% endfilter %} ({{ product.type }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
