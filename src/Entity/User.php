@@ -35,7 +35,7 @@ class User
         $this->email = $lastname;
     }
 
-    public function getEmail($email)
+    public function getEmail()
     {
         return $this->email;
     }

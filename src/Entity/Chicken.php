@@ -31,7 +31,7 @@ class Chicken
         $this->name = $price;
     }
 
-    public function getName($name)
+    public function getName()
     {
         return $this->name;
     }

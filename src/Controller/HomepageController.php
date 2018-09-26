@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ProductRepository;
 
 class HomepageController extends AbstractController
 {
@@ -12,7 +13,7 @@ class HomepageController extends AbstractController
      */
     public function index()
     {
-        $products = [
+/*        $products = [
             [
                 'id' => 1,
                 'name' => 'Chicen Salad',
@@ -28,10 +29,11 @@ class HomepageController extends AbstractController
                 'name' => 'My big bucket',
                 'type' => 'Bucket',
             ],
-        ];
-
+        ];*/
+        $chickenRepository = new ProductRepository();
+        $chickens = $chickenRepository->findAll();
         return $this->render('homepage.html.twig', [
-            'products' => $products,
+            'products' => $chickens,
         ]);
     }
 }

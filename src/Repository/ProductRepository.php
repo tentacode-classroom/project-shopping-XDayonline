@@ -2,6 +2,9 @@
 
 namespace App\Repository;
 
+use App\Entity\Chicken;
+use App\Entity\User;
+
 class ProductRepository
 {
     private $chickens;
@@ -29,11 +32,18 @@ class ProductRepository
 
     public function findAll(): array
     {
-        // ici le code pour retourner tout les produits
+        return $this->chickens;
     }
-
     public function findOneById(int $id): Chicken
     {
-        // ici le code pour retourner un produit qui correspond à l'id
+        foreach ($this->chickens as $chicken) {
+            if ($chicken->getId() === $id) {
+                return $chicken;
+            }
+        }
+        throw new \RuntimeException(sprintf(
+            'No cat found with id "%s"',
+            $id
+        ));
     }
 }
