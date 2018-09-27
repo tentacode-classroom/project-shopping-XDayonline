@@ -16,7 +16,7 @@ class HomepageController extends AbstractController
 /*        $products = [
             [
                 'id' => 1,
-                'name' => 'Chicen Salad',
+                'name' => 'Chicken Salad',
                 'type' => 'Entrée',
             ],
             [
@@ -29,11 +29,15 @@ class HomepageController extends AbstractController
                 'name' => 'My big bucket',
                 'type' => 'Bucket',
             ],
-        ];*/
-        $chickenRepository = new ProductRepository();
-        $chickens = $chickenRepository->findAll();
+        ];
         return $this->render('homepage.html.twig', [
-            'products' => $chickens,
+            'products' => $products,
+        ]);*/
+
+        $productRepository = new ProductRepository();
+        $chickens = $productRepository->findAll();
+        return $this->render('homepage.html.twig', [
+            'chickens' => $chickens,
         ]);
     }
 }

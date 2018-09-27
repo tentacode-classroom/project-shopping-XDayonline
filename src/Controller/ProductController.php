@@ -11,20 +11,26 @@ class ProductController extends AbstractController
     /**
      * @Route("/product/{productId}", name="product")
      */
-    public function index(int $productId/*, string $productName*/)
+    public function index(int $productId /*, string $productName*/)
     {
-        $product = new Product();
-        $product->id = $productId;
-        $product->name = "test"/*$productName*/;
-
+//        $product = new Product();
+//        $product->id = $productId;
+//        $product->name = "test" /*$productName*/;
+//
+//        return $this->render('product/detail.html.twig', [
+//            'product' => $product,
+//        ]);
+//
+        $productRepository = new ProductRepository();
+        $chicken = $productRepository->findOneById($productId);
         return $this->render('product/detail.html.twig', [
-            'product' => $product,
+            'chicken' => $chicken,
         ]);
     }
 }
-
+/*
 class Product
 {
     public $id;
     public $name;
-}
+}*/

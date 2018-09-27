@@ -1,16 +1,20 @@
 {% extends "/base.html.twig" %}
 {% block title %}Accueil{% endblock %}
 {% block body %}
-    {% include 'layout/menu.html.twig' %}
-    <h1>Accueil</h1>
-    <h2>Liste des produits</h2>
-    <ul>
-        {% for product in products %}
-            <li>
-                <a href="{{ path('product', {'productId': product.id}) }}">
-                    {% filter upper %}{{ product.name }}{% endfilter %} ({{ product.type }})
-                </a>
-            </li>
+    <h1 class="home">Accueil</h1>
+    <div class="cardcontainer">
+        {% for product in chickens %}
+            <div class="card cardchicken" style="width: 18rem;">
+                <div class="card-body">
+                    <img class="card-img-top" src="{{ product.urlimg }}" alt="Card image cap">
+                    <a href="{{ path('product', {'productId': product.id}) }}">
+                        <h5 class="card-title">{% filter upper %}{{ product.name }}{% endfilter %}</h5>
+                    </a>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ product.type }}</h6>
+                    <p class="card-text">{{ product.description }}</p>
+                    <a href="{{ path('product', {'productId': product.id}) }}" class="card-link">Commander</a>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

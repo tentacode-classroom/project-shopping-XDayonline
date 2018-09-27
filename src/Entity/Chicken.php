@@ -9,10 +9,11 @@ class Chicken
     private $description;
     private $type;
     private $price;
+    private $urlimg;
 
     public function setId(int $id)
     {
-        $this->name = $id;
+        $this->id = $id;
     }
     public function setName(string $name)
     {
@@ -20,19 +21,43 @@ class Chicken
     }
     public function setDescription(string $description)
     {
-        $this->name = $description;
+        $this->description = $description;
     }
     public function setType(string $type)
     {
-        $this->name = $type;
+        $this->type = $type;
     }
     public function setPrice(string $price)
     {
-        $this->name = $price;
+        $this->price = $price;
+    }
+    public function setUrlprice(string $urlimg)
+    {
+        $this->urlimg = $urlimg;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
     public function getName()
     {
         return $this->name;
+    }
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    public function getType()
+    {
+        return $this->type;
+    }
+    public function getPrice()
+    {
+        return $this->price;
+    }
+    public function getUrlimg()
+    {
+        return $this->urlimg;
     }
 }
