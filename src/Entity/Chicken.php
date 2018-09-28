@@ -34,23 +34,21 @@ class Chicken
     /**
      * @ORM\Column(type="float")
      */
-    private $Price;
+    private $price;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $urlimg;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $viewCounter;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -91,12 +89,12 @@ class Chicken
 
     public function getPrice(): ?float
     {
-        return $this->Price;
+        return $this->price;
     }
 
-    public function setPrice(float $Price): self
+    public function setPrice(float $price): self
     {
-        $this->Price = $Price;
+        $this->price = $price;
 
         return $this;
     }
@@ -109,6 +107,18 @@ class Chicken
     public function setUrlimg(?string $urlimg): self
     {
         $this->urlimg = $urlimg;
+
+        return $this;
+    }
+
+    public function getViewCounter(): ?int
+    {
+        return $this->viewCounter;
+    }
+
+    public function setViewCounter(int $viewCounter): self
+    {
+        $this->viewCounter = $viewCounter;
 
         return $this;
     }

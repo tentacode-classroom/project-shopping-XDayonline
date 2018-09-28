@@ -22,19 +22,19 @@ class ChickenRepository extends ServiceEntityRepository
 //    /**
 //     * @return Chicken[] Returns an array of Chicken objects
 //     */
-    /*
-    public function findByExampleField($value)
+
+    public function findAllProducts()
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
+//            ->andWhere('c.name = :val')
+//            ->setParameter('val', 'Original')
+            ->orderBy('c.price', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Chicken

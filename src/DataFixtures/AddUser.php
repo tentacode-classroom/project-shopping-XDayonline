@@ -12,10 +12,10 @@ class AddUser extends Fixture
     {
 
         $product = new User();
-        $product->setEmail('Tender');
-        $product->setPassword(2);
-        $product->setFirstname('Poulet');
-        $product->setLastname("De vrais morceaux de poulet marinés et panés à déguster avec leurs sauces.");
+        $product->setEmail('john.mysterio@hotmail.fr');
+        $product->setPassword('jaimelespates');
+        $product->setFirstname('Jeanmi');
+        $product->setLastname("dutreize");
 
         $manager->persist($product);
 
