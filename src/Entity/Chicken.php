@@ -2,62 +2,114 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\ChickenRepository")
+ */
 class Chicken
 {
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $name;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private $type;
-    private $price;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $Price;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private $urlimg;
 
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-    public function setName(string $name)
-    {
-        $this->name = $name;
-    }
-    public function setDescription(string $description)
-    {
-        $this->description = $description;
-    }
-    public function setType(string $type)
-    {
-        $this->type = $type;
-    }
-    public function setPrice(string $price)
-    {
-        $this->price = $price;
-    }
-    public function setUrlprice(string $urlimg)
-    {
-        $this->urlimg = $urlimg;
-    }
-
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
-    public function getName()
+
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    public function getName(): ?string
     {
         return $this->name;
     }
-    public function getDescription()
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
     {
         return $this->description;
     }
-    public function getType()
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getType(): ?string
     {
         return $this->type;
     }
-    public function getPrice()
+
+    public function setType(string $type): self
     {
-        return $this->price;
+        $this->type = $type;
+
+        return $this;
     }
-    public function getUrlimg()
+
+    public function getPrice(): ?float
+    {
+        return $this->Price;
+    }
+
+    public function setPrice(float $Price): self
+    {
+        $this->Price = $Price;
+
+        return $this;
+    }
+
+    public function getUrlimg(): ?string
     {
         return $this->urlimg;
+    }
+
+    public function setUrlimg(?string $urlimg): self
+    {
+        $this->urlimg = $urlimg;
+
+        return $this;
     }
 }

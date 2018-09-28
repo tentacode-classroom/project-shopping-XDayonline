@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Chicken;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ProductRepository;
+use App\Repository\MusicRepository;
+use App\Entity\Music;
 
 class HomepageController extends AbstractController
 {
@@ -13,27 +16,6 @@ class HomepageController extends AbstractController
      */
     public function index()
     {
-/*        $products = [
-            [
-                'id' => 1,
-                'name' => 'Chicken Salad',
-                'type' => 'Entrée',
-            ],
-            [
-                'id' => 2,
-                'name' => 'Chicken Giant',
-                'type' => 'Sandwich',
-            ],
-            [
-                'id' => 3,
-                'name' => 'My big bucket',
-                'type' => 'Bucket',
-            ],
-        ];
-        return $this->render('homepage.html.twig', [
-            'products' => $products,
-        ]);*/
-
         $productRepository = new ProductRepository();
         $chickens = $productRepository->findAll();
         return $this->render('homepage.html.twig', [
