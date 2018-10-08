@@ -46,6 +46,15 @@ class AddProduct extends Fixture
 
         $manager->persist($product);
 
+        $product = new Chicken();
+        $product->setPrice(2);
+        $product->setName('Chicken Wing Cupcake');
+        $product->setType('Dessert');
+        $product->setDescription("1 Tender accompagnée de son délicieux cupcake chocolat nappé de sa crème onctueuse.");
+        $product->setUrlimg("https://s.abcnews.com/images/Entertainment/ht_chicken_wing_cupcake_nt_120203_wmain.jpg");
+
+        $manager->persist($product);
+
         $manager->flush();
     }
 }

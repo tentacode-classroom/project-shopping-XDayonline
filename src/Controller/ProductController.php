@@ -33,7 +33,6 @@ class ProductController extends AbstractController
             );
         }
 
-//        return new Response('Check out this great product: ' . $product->getName());
         return $this->render('product/detail.html.twig', [
             'chicken' => $product,
         ]);
