@@ -5,10 +5,8 @@ namespace App\Controller;
 use App\Entity\Chicken;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\ProductRepository;
-use App\Repository\MusicRepository;
-use App\Repository\ChickenRepository;
-use App\Entity\Music;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class HomepageController extends AbstractController
 {

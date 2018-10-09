@@ -26,10 +26,10 @@ class Chicken
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $type;
+//    /**
+//     * @ORM\Column(type="string", length=255)
+//     */
+//    private $type;
 
     /**
      * @ORM\Column(type="float")
@@ -42,9 +42,15 @@ class Chicken
     private $urlimg;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Type", inversedBy="type")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $viewCounter;
+    private $type;
+
+//    /**
+//     * @ORM\Column(type="integer")
+//     */
+//    private $viewCounter;
 
     public function getId(): ?int
     {
@@ -75,7 +81,7 @@ class Chicken
         return $this;
     }
 
-    public function getType(): ?string
+    /*public function getType(): ?string
     {
         return $this->type;
     }
@@ -85,7 +91,7 @@ class Chicken
         $this->type = $type;
 
         return $this;
-    }
+    }*/
 
     public function getPrice(): ?float
     {
@@ -111,15 +117,27 @@ class Chicken
         return $this;
     }
 
-    public function getViewCounter(): ?int
+    public function getType(): ?Type
     {
-        return $this->viewCounter;
+        return $this->type;
     }
 
-    public function setViewCounter(int $viewCounter): self
+    public function setType(?Type $type): self
     {
-        $this->viewCounter = $viewCounter;
+        $this->type = $type;
 
         return $this;
     }
+
+//    public function getViewCounter(): ?int
+//    {
+//        return $this->viewCounter;
+//    }
+//
+//    public function setViewCounter(int $viewCounter): self
+//    {
+//        $this->viewCounter = $viewCounter;
+//
+//        return $this;
+//    }
 }

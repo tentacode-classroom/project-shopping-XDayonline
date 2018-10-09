@@ -6,7 +6,7 @@
         {% for product in chickens %}
             <div class="card cardchicken" style="width: 18rem;">
                 <div class="card-body">
-                    <img class="card-img-top" src="{{ product.urlimg }}" alt="Card image cap">
+                    <img class="card-img-top productimg" src="{{ product.urlimg }}" alt="Card image cap">
                     <a href="{{ path('product', {'productId': product.id}) }}">
                         <h5 class="card-title">{% filter upper %}{{ product.name }}{% endfilter %}</h5>
                     </a>
