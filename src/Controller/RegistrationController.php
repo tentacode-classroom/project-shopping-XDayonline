@@ -22,9 +22,9 @@ class RegistrationController extends AbstractController
         $user = new User();
         $form = $this->createFormBuilder($user)
             ->add('email', EmailType::class)
-            ->add('password',PasswordType::class,array('attr' => array('minlength' => 6)))
-            ->add('firstname',TextType::class)
-            ->add('lastname',TextType::class)
+            ->add('password',PasswordType::class, array('attr' => array('minlength' => 6)))
+            ->add('firstname',TextType::class, [ 'label' => 'Prénom' ])
+            ->add('lastname',TextType::class, [ 'label' => 'Nom' ])
             ->add('save', SubmitType::class, array('label' => "S'inscrire"))
             ->getForm();
 

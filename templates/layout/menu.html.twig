@@ -1,8 +1,15 @@
 <nav class="sticky-top py-1" style="background-color: #3a3a3a;">
     <div class="container d-flex flex-column flex-md-row justify-content-between navbar">
         <a class="py-2 d-none d-md-inline-block" href="{{ path('homepage') }}">Accueil</a>
-        <a class="py-2 d-none d-md-inline-block" href="{{ path('registration') }}">Inscription</a>
-        <a class="py-2 d-none d-md-inline-block" href="#">A Propos</a>
         <a class="py-2 d-none d-md-inline-block" href="#">Panier</a>
+        {% if not is_granted('ROLE_ADMIN') %}
+            <a class="py-2 d-none d-md-inline-block" href="{{ path('registration') }}">Inscription</a>
+        {% endif %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="py-2 d-none d-md-inline-block" href="{{ path('logout') }}">Se déconnecter</a>
+        {% else %}
+            <a class="py-2 d-none d-md-inline-block" href="{{ path('login') }}">Se connecter</a>
+        {% endif %}
+        <a class="py-2 d-none d-md-inline-block" href="{{ path('contact') }}">Contact</a>
     </div>
 </nav>
