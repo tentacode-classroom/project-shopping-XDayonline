@@ -1,7 +1,7 @@
 <nav class="sticky-top py-1" style="background-color: #3a3a3a;">
     <div class="container d-flex flex-column flex-md-row justify-content-between navbar">
         <a class="py-2 d-none d-md-inline-block" href="{{ path('homepage') }}">Accueil</a>
-        <a class="py-2 d-none d-md-inline-block" href="#">Panier</a>
+        <a class="py-2 d-none d-md-inline-block" href="{{ path('panier') }}">Panier</a>
         {% if not is_granted('ROLE_ADMIN') %}
             <a class="py-2 d-none d-md-inline-block" href="{{ path('registration') }}">Inscription</a>
         {% endif %}
@@ -11,5 +11,6 @@
             <a class="py-2 d-none d-md-inline-block" href="{{ path('login') }}">Se connecter</a>
         {% endif %}
         <a class="py-2 d-none d-md-inline-block" href="{{ path('contact') }}">Contact</a>
+        <a class="py-2 d-none d-md-inline-block" href="{{ path('admin') }}">Admin</a>
     </div>
 </nav>

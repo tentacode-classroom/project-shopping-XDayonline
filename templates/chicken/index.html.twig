@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chicken index{% endblock %}
+
+{% block body %}
+    <h1>Chicken index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Urlimg</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chicken in chickens %}
+            <tr>
+                <td>{{ chicken.id }}</td>
+                <td>{{ chicken.name }}</td>
+                <td>{{ chicken.description }}</td>
+                <td>{{ chicken.price }}</td>
+                <td>{{ chicken.urlimg }}</td>
+                <td>
+                    <a href="{{ path('chicken_show', {'id': chicken.id}) }}">show</a>
+                    <a href="{{ path('chicken_edit', {'id': chicken.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('chicken_new') }}">Create new</a>
+{% endblock %}

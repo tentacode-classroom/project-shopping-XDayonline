@@ -12,7 +12,7 @@ class AddUser extends Fixture
     {
 
         $product = new User();
-        $product->setEmail('john.mysterio@hotmail.fr');
+        $product->setUsername('john.mysterio@hotmail.fr');
         $product->setPassword('jaimelespates');
         $product->setFirstname('Jeanmi');
         $product->setLastname("dutreize");

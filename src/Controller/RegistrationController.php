@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 use App\Entity\User;
 
 
@@ -17,11 +19,11 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/inscription", name="registration")
      */
-    public function index(Request $request)
+    public function index(Request $request, UserPasswordEncoderInterface $encoder)
     {
         $user = new User();
         $form = $this->createFormBuilder($user)
-            ->add('email', EmailType::class)
+            ->add('username', EmailType::class)
             ->add('password',PasswordType::class, array('attr' => array('minlength' => 6)))
             ->add('firstname',TextType::class, [ 'label' => 'Prénom' ])
             ->add('lastname',TextType::class, [ 'label' => 'Nom' ])
@@ -33,7 +35,11 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $form->getData();
 
-             $entityManager = $this->getDoctrine()->getManager();
+            $plainPassword = $user->getPassword();
+            $encryptedPassword = $encoder->encodePassword($user, $plainPassword);
+            $user->setPassword($encryptedPassword);
+
+            $entityManager = $this->getDoctrine()->getManager();
              $entityManager->persist($user);
              $entityManager->flush();
 

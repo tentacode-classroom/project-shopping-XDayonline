@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Panier</h1>
+
+        <ul>
+            {% for product in basket_products %}
+                <li>{{ product.name }} (<a href="{{ path('basket_remove', {
+                        'productId': product.id
+                    }) }}">supprimer</a>)</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
